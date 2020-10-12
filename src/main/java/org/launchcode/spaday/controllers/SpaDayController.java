@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -63,7 +64,8 @@ public class SpaDayController {
                 "</select><br>" +
                 "<input type = 'submit' value = 'Submit'>" +
                 "</form>";
-        return html;
+                return html;
+
     }
 
     @PostMapping(value="")
@@ -82,6 +84,12 @@ public class SpaDayController {
             }
         }
 
+        model.addAttribute("name", name);
+        model.addAttribute("skintype", skintype);
+        model.addAttribute("manipedi", manipedi);
+        model.addAttribute("facials", facials);
+
         return "menu";
     }
+
 }
